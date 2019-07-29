@@ -23,5 +23,8 @@ RUN pwsh -Command "& {Install-Module -Name Az -AllowClobber -Force}"
 RUN pwsh -Command "& {Register-PackageSource -Name MyNuGet -Location https://www.nuget.org/api/v2 -ProviderName NuGet}"
 RUN pwsh -Command "& {Install-Package Microsoft.ApplicationInsights -Force}"
 
-ENTRYPOINT [ "/bin/bash" ]
+COPY ./scripts /home/scripts
+RUN chmod +x /home/scripts/DoWork.sh
 
+ENTRYPOINT [ "/bin/bash" ]
+CMD ["/home/scripts/DoWork.sh"]
