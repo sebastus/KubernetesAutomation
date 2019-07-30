@@ -24,7 +24,7 @@ RUN pwsh -Command "& {Register-PackageSource -Name MyNuGet -Location https://www
 RUN pwsh -Command "& {Install-Package Microsoft.ApplicationInsights -Force}"
 
 COPY ./scripts /home/scripts
-RUN chmod +x /home/scripts/DoWork.sh
+RUN chmod +x /home/scripts/Do-Work.sh
 
 ENTRYPOINT [ "/bin/bash" ]
 CMD ["/home/scripts/Do-Work.sh"]
