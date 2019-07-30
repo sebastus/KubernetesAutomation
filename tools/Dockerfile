@@ -27,4 +27,4 @@ COPY ./scripts /home/scripts
 RUN chmod +x /home/scripts/DoWork.sh
 
 ENTRYPOINT [ "/bin/bash" ]
-#CMD ["/home/scripts/DoWork.sh"]
+CMD ["/home/scripts/DoWork.sh"]
