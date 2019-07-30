@@ -17,7 +17,7 @@ function Connect-MyAzAccount
 
     $passwd = ConvertTo-SecureString $app_key -AsPlainText -Force
     $pscredential = New-Object System.Management.Automation.PSCredential($app_id, $passwd)
-    Connect-AzAccount -ServicePrincipal -Credential $pscredential -TenantId $tenant_id
+    Connect-AzAccount -ServicePrincipal -Credential $pscredential -Tenant $tenant_id
 
     Get-AzSubscription -SubscriptionId $subscription_id -TenantId $tenant_id | Set-AzContext
 
