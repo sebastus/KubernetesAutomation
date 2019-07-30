@@ -26,5 +26,7 @@ RUN pwsh -Command "& {Install-Package Microsoft.ApplicationInsights -Force}"
 COPY ./scripts /home/scripts
 RUN chmod +x /home/scripts/Do-Work.sh
 
+COPY ./templates /home/templates
+
 ENTRYPOINT [ "/bin/bash" ]
 CMD ["/home/scripts/Do-Work.sh"]
