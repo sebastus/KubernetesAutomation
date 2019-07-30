@@ -10,6 +10,14 @@ RUN cd ~ && \
     chmod +x ./kubectl && \
     mv ./kubectl /usr/local/bin/kubectl
 
+# install terraform
+ENV TERRAFORM_VERSION 0.12.5
+RUN cd ~ && \
+    apt-get install -y wget unzip && \
+    wget -q -O /terraform.zip "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" && \
+    unzip /terraform.zip -d /usr/local/bin && \
+    rm terraform.zip
+
 # install powershell on Ubuntu 18.04
 RUN apt-get install -y software-properties-common && \
     cd ~ && \
