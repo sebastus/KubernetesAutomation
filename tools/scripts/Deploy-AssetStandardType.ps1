@@ -17,7 +17,9 @@ function Deploy-AssetStandardType
     Connect-MyAzAccount -tenant_id $tenant_id -app_id $app_id `
         -app_key $app_key -subscription_id $subscription_id
     
+    $ErrorActionPreference = "silentlycontinue"
     $rg = Get-AzResourceGroup -Name $rg_name -Location $rg_location
+    $ErrorActionPreference = "continue"
     if ($null -eq $rg) {
         New-AzResourceGroup -Location $rg_location -Name $rg_name -Force
     }

@@ -1,0 +1,35 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sor-api
+spec:
+  template:
+    spec:
+      containers:
+      - name: sor-api
+        image: sebastus/dotnetapisor:v0.1.11
+        command: ["/bin/bash"]
+        args: ["/home/scripts/Do-Work.sh", "derived", "newDerivedRg", "uksouth"]
+        env:
+        - name: AZURE_TENANT_ID
+          valueFrom:
+            secretKeyRef:
+              name: sor-admin-secrets
+              key: azure_tenant_id            
+        - name: AZURE_APP_ID
+          valueFrom:
+            secretKeyRef:
+              name: sor-admin-secrets
+              key: azure_app_id            
+        - name: AZURE_APP_KEY
+          valueFrom:
+            secretKeyRef:
+              name: sor-admin-secrets
+              key: azure_app_key            
+        - name: AZURE_SUBSCRIPTION_ID
+          valueFrom:
+            secretKeyRef:
+              name: sor-admin-secrets
+              key: azure_subscription_id            
+      restartPolicy: Never
+  backoffLimit: 0

@@ -12,5 +12,5 @@ secretGenerator:
   
 # list of Resource Config to be Applied
 resources:
-- test.yaml
+- newRawAsset.yaml
 

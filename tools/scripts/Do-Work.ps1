@@ -3,6 +3,8 @@
 . ./Connect-MyAzAccount.ps1
 . ./Deploy-AssetStandardType.ps1
 
+$standardType = Get-Env "ASSET_STANDARD_TYPE"
+
 # do the work
-Deploy-AssetStandardType -standardType "raw"
+Deploy-AssetStandardType -standardType $standardType
 
