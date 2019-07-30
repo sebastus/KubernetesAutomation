@@ -5,6 +5,6 @@ function Get-Env
         [Parameter(Mandatory=$true)]
         [String]$env
     )
-    $var = Get-ChildItem env:$env
+    $var = (Get-ChildItem env:$env).Trim()
     $var.value
 }
