@@ -6,9 +6,9 @@ variable "AZURE_TENANT_ID"{}
 provider "azurerm" {
   version = "~> 1.28.0"
 
-  subscription_id = "${var.AZURE_APP_KEY}"
-  client_id       = "${var.AZURE_SUBSCRIPTION_ID}"
-  client_secret   = "${var.AZURE_APP_ID}"
+  subscription_id = "${var.AZURE_SUBSCRIPTION_ID}"
+  client_id       = "${var.AZURE_APP_ID}"
+  client_secret   = "${var.AZURE_APP_KEY}"
   tenant_id       = "${var.AZURE_TENANT_ID}"
 }
 
