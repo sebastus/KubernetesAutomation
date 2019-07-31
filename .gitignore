@@ -1,3 +1,4 @@
 */values.yaml
 values.yaml
-tools/secrets/*
+tools/secrets/*.txt
+notes.txt
