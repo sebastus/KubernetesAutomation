@@ -2,7 +2,7 @@
     "apiVersion": "batch/v1",
     "kind": "Job",
     "metadata": {
-        "name": "sor-api",
+        "name": "sor-raw-asset",
         "namespace": "default"
     },
     "spec": {
@@ -11,8 +11,55 @@
             "spec": {
                 "containers": [
                     {
-                        "image": "sebastus/dotnetapisor:v0.1.0",
-                        "name": "sor-api"
+                        "args": [
+                            "/home/scripts/Do-Work-Tf.sh",
+                            "raw",
+                            "newRawRg",
+                            "uksouth"
+                        ],
+                        "command": [
+                            "/bin/bash"
+                        ],
+                        "env": [
+                            {
+                                "name": "AZURE_TENANT_ID",
+                                "valueFrom": {
+                                    "secretKeyRef": {
+                                        "key": "azure_tenant_id.txt",
+                                        "name": "sor-admin-secrets"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "AZURE_APP_ID",
+                                "valueFrom": {
+                                    "secretKeyRef": {
+                                        "key": "azure_app_id.txt",
+                                        "name": "sor-admin-secrets"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "AZURE_APP_KEY",
+                                "valueFrom": {
+                                    "secretKeyRef": {
+                                        "key": "azure_app_key.txt",
+                                        "name": "sor-admin-secrets"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "AZURE_SUBSCRIPTION_ID",
+                                "valueFrom": {
+                                    "secretKeyRef": {
+                                        "key": "azure_subscription_id.txt",
+                                        "name": "sor-admin-secrets"
+                                    }
+                                }
+                            }
+                        ],
+                        "image": "sebastus/dotnetapisor:test",
+                        "name": "sor-raw-asset"
                     }
                 ],
                 "restartPolicy": "Never"
