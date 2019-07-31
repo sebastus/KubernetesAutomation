@@ -5,30 +5,45 @@ metadata:
 spec:
   template:
     spec:
-    containers:
-    - name: sor-raw-asset
-      image: sebastus/dotnetapisor:test
-      command: ["/bin/bash"]
-      args: ["/home/scripts/Do-Work.sh", "raw", "newRawRg", "uksouth"]
-      env:
-      - name: AZURE_TENANT_ID
-        valueFrom:
-          secretKeyRef:
-            name: sor-admin-secrets
-            key: azure_tenant_id.txt
-      - name: AZURE_APP_ID
-        valueFrom:
-          secretKeyRef:
-            name: sor-admin-secrets
-            key: azure_app_id.txt
-      - name: AZURE_APP_KEY
-        valueFrom:
-          secretKeyRef:
-            name: sor-admin-secrets
-            key: azure_app_key.txt
-      - name: AZURE_SUBSCRIPTION_ID
-        valueFrom:
-          secretKeyRef:
-            name: sor-admin-secrets
-            key: azure_subscription_id.txt
-    restartPolicy: Never
+      containers:
+      - name: sor-raw-asset
+        image: sebastus/dotnetapisor:latest
+        command: ["/bin/bash"]
+        args: ["/home/scripts/Do-Work.sh"]
+        env:
+        - name: AZURE_TENANT_ID
+          valueFrom:
+            configMapKeyRef:
+              name: asset1-configmap
+              key: tenant_id           
+        - name: AZURE_APP_ID
+          valueFrom:
+            secretKeyRef:
+              name: sor-admin-secrets
+              key: azure_app_id.txt
+        - name: AZURE_APP_KEY
+          valueFrom:
+            secretKeyRef:
+              name: sor-admin-secrets
+              key: azure_app_key.txt
+        - name: AZURE_SUBSCRIPTION_ID
+          valueFrom:
+            configMapKeyRef:
+              name: asset1-configmap
+              key: subscription_id
+        - name: ASSET_CONFIGURATION
+          valueFrom:
+            configMapKeyRef:
+              name: asset1-configmap
+              key: asset_configuration
+        - name: RG_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: asset1-configmap
+              key: rg_name
+        - name: RG_LOCATION
+          valueFrom:
+            configMapKeyRef:
+              name: asset1-configmap
+              key: rg_location
+      restartPolicy: Never
