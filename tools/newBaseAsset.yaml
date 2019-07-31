@@ -1,12 +1,12 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: sor-api
+  name: sor-base-asset
 spec:
   template:
     spec:
       containers:
-      - name: sor-api
+      - name: sor-base-asset
         image: sebastus/dotnetapisor:test
         command: ["/bin/bash"]
         args: ["/home/scripts/Do-Work.sh", "base", "newBaseRg", "uksouth"]
