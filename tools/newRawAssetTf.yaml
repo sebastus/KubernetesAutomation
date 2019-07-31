@@ -7,7 +7,7 @@ spec:
     spec:
       containers:
       - name: sor-raw-asset
-        image: sebastus/dotnetapisor:test
+        image: sebastus/dotnetapisor:latest
         command: ["/bin/bash"]
         args: ["/home/scripts/Do-Work-Tf.sh"]
         env:
