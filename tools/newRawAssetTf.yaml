@@ -9,7 +9,7 @@ spec:
       - name: sor-raw-asset
         image: sebastus/dotnetapisor:test
         command: ["/bin/bash"]
-        args: ["/home/scripts/Do-Work-Tf.sh", "raw", "newRawRg", "uksouth"]
+        args: ["/home/scripts/Do-Work-Tf.sh"]
         env:
         - name: AZURE_TENANT_ID
           valueFrom:
@@ -31,5 +31,20 @@ spec:
             configMapKeyRef:
               name: asset1-configmap
               key: subscription_id
+        - name: ASSET_CONFIGURATION
+          valueFrom:
+            configMapKeyRef:
+              name: asset1-configmap
+              key: asset_configuration
+        - name: RG_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: asset1-configmap
+              key: rg_name
+        - name: RG_LOCATION
+          valueFrom:
+            configMapKeyRef:
+              name: asset1-configmap
+              key: rg_location
       restartPolicy: Never
   backoffLimit: 0

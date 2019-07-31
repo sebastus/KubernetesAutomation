@@ -5,3 +5,6 @@ metadata:
 data:
   subscription_id: 743f6ed6-83a8-46f0-822d-ea93b953952d
   tenant_id: 72f988bf-86f1-41af-91ab-2d7cd011db47
+  asset_configuration: standard-raw
+  rg_name: asset1Rg
+  rg_location: uksouth
