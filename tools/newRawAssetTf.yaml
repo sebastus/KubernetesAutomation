@@ -29,3 +29,4 @@ spec:
         secretKeyRef:
           name: sor-admin-secrets
           key: azure_subscription_id.txt
+  restartPolicy: Never
