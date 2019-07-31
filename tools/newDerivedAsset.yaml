@@ -7,7 +7,7 @@ spec:
     spec:
       containers:
       - name: sor-api
-        image: sebastus/dotnetapisor:v0.1.11
+        image: sebastus/dotnetapisor:test
         command: ["/bin/bash"]
         args: ["/home/scripts/Do-Work.sh", "derived", "newDerivedRg", "uksouth"]
         env:
