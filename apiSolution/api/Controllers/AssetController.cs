@@ -16,6 +16,7 @@ namespace api.Controllers
         [HttpPost]
         public void Post([FromBody] NewConfigmap value)
         {
+            Console.WriteLine("Got a post from somewhere.");
         }
 
 
