@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sor-api-deploy
+  name: sor-api
   namespace: default
   labels:
     app: sor-api
