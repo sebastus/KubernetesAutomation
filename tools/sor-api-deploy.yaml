@@ -1,0 +1,29 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sor-api-deploy
+  namespace: default
+  labels:
+    app: sor-api
+    role: api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sor-api
+      role: api
+  template:
+    metadata:
+      labels:
+        app: sor-api
+        role: api
+    spec:
+      hostname: sor-api
+      dnsPolicy: ClusterFirst
+      dnsConfig:
+        searches:
+          - sor-api.default.svc.cluster.local
+      containers:
+        - name: sor-api 
+          image: sebastus/sorapi:latest
