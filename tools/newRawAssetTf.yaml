@@ -14,7 +14,7 @@ spec:
         - name: AZURE_TENANT_ID
           valueFrom:
             configMapKeyRef:
-              name: asset1-configmap
+              name: gb-south
               key: tenant_id           
         - name: AZURE_APP_ID
           valueFrom:
@@ -29,22 +29,22 @@ spec:
         - name: AZURE_SUBSCRIPTION_ID
           valueFrom:
             configMapKeyRef:
-              name: asset1-configmap
+              name: gb-south
               key: subscription_id
         - name: ASSET_CONFIGURATION
           valueFrom:
             configMapKeyRef:
-              name: asset1-configmap
+              name: gb-south
               key: asset_configuration
         - name: RG_NAME
           valueFrom:
             configMapKeyRef:
-              name: asset1-configmap
+              name: gb-south
               key: rg_name
         - name: RG_LOCATION
           valueFrom:
             configMapKeyRef:
-              name: asset1-configmap
+              name: gb-south
               key: rg_location
       restartPolicy: Never
   backoffLimit: 0
