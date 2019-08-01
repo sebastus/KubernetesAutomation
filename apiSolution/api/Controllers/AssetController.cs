@@ -14,9 +14,9 @@ namespace api.Controllers
     {
         // POST api/asset
         [HttpPost]
-        public void Post([FromBody] NewConfigmap value)
+        public ActionResult<IEnumerable<string>> Post([FromBody] NewConfigmap value)
         {
-            Console.WriteLine("Got a post from somewhere.");
+            return new string[] { value.assetConfiguration, value.rgName, value.rgLocation };
         }
 
 
