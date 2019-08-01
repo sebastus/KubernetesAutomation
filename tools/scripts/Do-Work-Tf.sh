@@ -1,5 +1,7 @@
 cd /home/scripts
 
+export TERRAFORM_IN_AUTOMATION=true
+
 terraform init -input=false ../templates/$ASSET_CONFIGURATION/
 
 terraform plan -out=tfplan -input=false  \
