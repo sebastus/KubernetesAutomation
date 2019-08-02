@@ -25,8 +25,8 @@ namespace api.Controllers
         {
             //Console.WriteLine($"Asset Configuration: {value.assetConfiguration}, Resource Group Name: {value.rgName}, Resource Group Location: {value.rgLocation}");
 
-            var baseURL = config["baseURL"];
-            Console.WriteLine($"baseURL: {baseURL}");
+            var allowedHosts = config["AllowedHosts"];
+            Console.WriteLine($"Allowed Hosts: {allowedHosts}");
         }
 
 
