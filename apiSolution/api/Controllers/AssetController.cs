@@ -16,6 +16,7 @@ namespace api.Controllers
         [HttpPost]
         public ActionResult<IEnumerable<string>> Post([FromBody] NewConfigmap value)
         {
+            Console.WriteLine($"Asset Configuration: {value.assetConfiguration}, Resource Group Name: {value.rgName}, Resource Group Location: {value.rgLocation}");
             return new string[] { value.assetConfiguration, value.rgName, value.rgLocation };
         }
 
